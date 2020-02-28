@@ -16,7 +16,7 @@ def create_view_permission(apps, schema_editor):
     permission, created = Permission.objects.get_or_create(
         content_type=content_type,
         codename='view_usercredential',
-        name='Can view any user credential',
+        name='Can view user credential',
     )
     if created:
         Group.objects.get(name=Role.ADMINS).permissions.add(permission)
