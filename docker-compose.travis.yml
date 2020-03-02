@@ -16,5 +16,6 @@ services:
       - DB_USER=credentials001
       - DJANGO_SETTINGS_MODULE=credentials.settings.test
       - ENABLE_DJANGO_TOOLBAR=1
+      - TOXENV=django20
     volumes:
       - .:/edx/app/credentials/credentials
