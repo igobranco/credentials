@@ -45,7 +45,52 @@ matrix:
       addons:
           firefox: latest
 
-    - env: TESTNAME=unit-tests
+    - env: TOXENV=django111
+
+      # Doing so is a waste of time since they won't be used.
+      install: true
+
+      script:
+        - make exec-requirements
+        - make exec-static
+        - make exec-tests
+
+      after_success:
+        - pip install --upgrade codecov
+        - make exec-coverage
+        - codecov
+
+    - env: TOXENV=django20
+
+      # Doing so is a waste of time since they won't be used.
+      install: true
+
+      script:
+        - make exec-requirements
+        - make exec-static
+        - make exec-tests
+
+      after_success:
+        - pip install --upgrade codecov
+        - make exec-coverage
+        - codecov
+
+    - env: TOXENV=django21
+
+      # Doing so is a waste of time since they won't be used.
+      install: true
+
+      script:
+        - make exec-requirements
+        - make exec-static
+        - make exec-tests
+
+      after_success:
+        - pip install --upgrade codecov
+        - make exec-coverage
+        - codecov
+
+    - env: TOXENV=django22
 
       # Doing so is a waste of time since they won't be used.
       install: true
